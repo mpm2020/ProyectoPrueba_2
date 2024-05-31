@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -24,7 +25,9 @@ public class SeleniumTest {
 
     @Test
     public void TestPrueba() {
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Configurar Chrome en modo headless
+        WebDriver driver = new ChromeDriver(options);
         try {
             driver.get("https://www.saucedemo.com/");
             // Site
@@ -32,7 +35,7 @@ public class SeleniumTest {
 
             TakesScreenshot screenshotDriver = (TakesScreenshot) driver;
             File screenshotFile = screenshotDriver.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshotFile, new File("..\\ProyectoPrueba_2\\ScreenShots\\pantalla.png"));
+            FileUtils.copyFile(screenshotFile, new File("..\\ProyectoPrueba_2-main\\ScreenShots\\pantalla.png"));
         } catch (IOException e) {
             logger.error("Error al guardar la captura de pantalla: " + e.getMessage());
         } finally {
