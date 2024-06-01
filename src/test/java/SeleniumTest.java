@@ -29,7 +29,7 @@ public class SeleniumTest {
 
             TakesScreenshot screenshotDriver = (TakesScreenshot) driver;
             File screenshotFile = screenshotDriver.getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshotFile, new File("..\\ProyectoPrueba_2-main\\ScreenShots\\pantalla.png"));
+            FileUtils.copyFile(screenshotFile, new File("..\\ProyectoPrueba_2\\ScreenShots\\pantalla.png"));
         } catch (IOException e) {
             logger.error("Error al guardar la captura de pantalla: " + e.getMessage());
         } finally {
