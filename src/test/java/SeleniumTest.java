@@ -11,6 +11,7 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
 
 
@@ -24,6 +25,7 @@ public class SeleniumTest {
         WebDriver driver = new ChromeDriver(options);
         try {
             driver.get("https://www.saucedemo.com/");
+            Assert.assertTrue(false, "Esta prueba falla intencionalmente.");
             // Site
             logger.info("SAUCE DEMO");
 
